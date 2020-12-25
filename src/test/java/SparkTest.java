@@ -31,8 +31,8 @@ public class SparkTest {
         input.add("Nov 2 12:22:22 4");
         input.add("Nov 2 12:22:22 3");
 
-        expectedOutput.add(new Tuple2<String, Integer>("12,3", 2));
-        expectedOutput.add(new Tuple2<String, Integer>("12,4", 1));
+        expectedOutput.add(new Tuple2<String, Integer>("2,12,3", 2));
+        expectedOutput.add(new Tuple2<String, Integer>("2,12,4", 1));
     }
 
     @Test
