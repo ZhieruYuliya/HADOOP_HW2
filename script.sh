@@ -14,12 +14,13 @@ for i in $(seq "$2")
   do
     HOUR=$((RANDOM % 24))
     PRIORITY=$((RANDOM % 8))
+    DAY=$(((RANDOM % 3)+1))
       if [ $HOUR -le 9 ]; then
         TWO_DIGIT_HOUR="0$HOUR"
       else
         TWO_DIGIT_HOUR="$HOUR"
       fi
-    RESULT="Nov 15 $TWO_DIGIT_HOUR:12:33 $PRIORITY ${POSTFIX[$((RANDOM % ${#POSTFIX[*]}))]}"
+    RESULT="Nov $DAY $TWO_DIGIT_HOUR:12:33 $PRIORITY ${POSTFIX[$((RANDOM % ${#POSTFIX[*]}))]}"
     echo $RESULT >> input/"$1.log"
   done
 
