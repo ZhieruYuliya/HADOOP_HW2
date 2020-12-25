@@ -21,7 +21,7 @@ public class LogLevelCounter {
     public static JavaPairRDD<String, Integer> counLogLevelPerHour(JavaRDD<String> inputRDD){
         JavaPairRDD<String, Integer> rdd = inputRDD.mapToPair(w -> {
             String[] split = w.split("\\s");
-            return new Tuple2<String, Integer>(split[2].substring(0,2) + "," + split[3] , 1);
+            return new Tuple2<String, Integer>(split[1] + ", " + split[2].substring(0,2) + ", " + split[3] , 1);
         });
         JavaPairRDD<String, Integer> transformedRDD = rdd.reduceByKey((x,y) -> x + y).sortByKey();
         return transformedRDD;

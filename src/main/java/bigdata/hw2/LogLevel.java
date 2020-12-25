@@ -3,11 +3,13 @@ package bigdata.hw2;
 import java.util.Objects;
 
 public class LogLevel {
+    private int date;
     private int hour;
     private int logLevel;
 
 
-    public LogLevel( int hour,int logLevel) {
+    public LogLevel( int date, int hour,int logLevel) {
+        this.date = date;
         this.hour = hour;
         this.logLevel = logLevel;
     }
@@ -17,17 +19,17 @@ public class LogLevel {
         if (o == null || getClass() != o.getClass()) return false;
         LogLevel logLevel1 = (LogLevel) o;
         return logLevel == logLevel1.logLevel &&
-                hour == logLevel1.hour;
+                hour == logLevel1.hour && date==logLevel1.date;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(logLevel, hour);
+        return Objects.hash(logLevel, hour, date);
     }
 
     @Override
     public String toString() {
-        return "" + hour + "," + logLevel;
+        return date + "," + hour + "," + logLevel;
     }
 
 }
